@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sanberappflutter/get_started_page.dart';
+import 'package:sanberappflutter/home_page.dart';
+import 'package:sanberappflutter/news_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,24 +9,24 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: GetStartedPage()
-    );
+    return const MaterialApp(home: NewsPage());
   }
 }
 
 class CounterPage extends StatefulWidget {
-  const CounterPage ({super.key});
-  
+  const CounterPage({super.key});
+
   @override
   State<CounterPage> createState() => _CounterPageState();
 }
 
 class _CounterPageState extends State<CounterPage> {
   int counter = 0;
-  @override 
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -35,11 +37,11 @@ class _CounterPageState extends State<CounterPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             InkWell(
-              onTap:  () {
-                counter--;
-                setState(() {});
-              },
-              child: const Icon(Icons.remove)),
+                onTap: () {
+                  counter--;
+                  setState(() {});
+                },
+                child: const Icon(Icons.remove)),
             const SizedBox(width: 20),
             Text('Nilai Counter : $counter'),
             const SizedBox(width: 20),
@@ -63,4 +65,3 @@ class _CounterPageState extends State<CounterPage> {
 // Pertama setelah saya analisi setState ada ketika code counter ++/-- dijalankan , kenapa demikian ? karena setState sebagai marking/Penanda
 // bahwasannaya scope coode / code sebelumnya merupakan statefulwidget
 // Dan kegunaan dari setState tersebut untuk membuil ulang variable counter ketika mendapatkan perintah --/++
-
