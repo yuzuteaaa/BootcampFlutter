@@ -14,7 +14,7 @@ class _ButtomnavbarState extends State<Buttomnavbar> {
   final List<Widget> _children = [
     HomePage(),
     SearchPage(),
-    ProfilePage(),
+    SettingPage(),
   ];
 
   void onTabTapped(int index) {
@@ -52,8 +52,8 @@ class SearchPage extends StatelessWidget {
   }
 }
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+class SettingPage extends StatelessWidget {
+  const SettingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
