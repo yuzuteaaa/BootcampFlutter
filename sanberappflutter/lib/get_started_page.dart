@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'Tugas10/bottomNavBar.dart';
+
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({super.key});
 
@@ -35,7 +37,13 @@ class GetStartedPage extends StatelessWidget {
               height: 52,
               width: 354,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => Buttomnavbar()),
+                        (route) => false,
+                  );
+                },
                 child: Text(
                   "Masuk",
                   style: GoogleFonts.arimo(

@@ -125,7 +125,7 @@ class HomePage extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
-                      image: AssetImage('assets/homePage/Mask2.png'),
+                      image: AssetImage('assets/homePage/Mask.png'),
                       fit: BoxFit.cover,
                     ),
                   ),
