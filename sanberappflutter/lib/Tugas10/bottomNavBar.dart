@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sanberappflutter/get_started_page.dart';
 import 'package:sanberappflutter/home_page.dart';
+import 'package:sanberappflutter/settings_page.dart';
 
 class Buttomnavbar extends StatefulWidget {
   const Buttomnavbar({super.key});
@@ -14,7 +15,7 @@ class _ButtomnavbarState extends State<Buttomnavbar> {
   final List<Widget> _children = [
     HomePage(),
     SearchPage(),
-    SettingPage(),
+    SettingsPage(),
   ];
 
   void onTabTapped(int index) {
@@ -48,32 +49,6 @@ class SearchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Text('Search Page'),
-    );
-  }
-}
-
-class SettingPage extends StatelessWidget {
-  const SettingPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('Setting Page'),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => GetStartedPage()),
-                    (route) => false,
-              );
-            },
-            child: Text('Logout'),
-          )
-        ],
-      )
     );
   }
 }

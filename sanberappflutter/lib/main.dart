@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sanberappflutter/get_started_page.dart';
 import 'package:sanberappflutter/home_page.dart';
 import 'package:sanberappflutter/news_page.dart';
+import 'package:sanberappflutter/settings_page.dart';
 
 void main() {
   runApp(const MyApp());
