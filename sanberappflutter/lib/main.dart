@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sanberappflutter/get_started_page.dart';
-import 'package:sanberappflutter/home_page.dart';
-import 'package:sanberappflutter/news_page.dart';
-import 'package:sanberappflutter/settings_page.dart';
+import 'package:sanberappflutter/user/pages/user_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +10,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: GetStartedPage());
+    return const MaterialApp(home: UserPage());
   }
 }
 
