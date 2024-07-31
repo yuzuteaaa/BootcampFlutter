@@ -1,56 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import '../model/user_model.dart';
-import '../service/user_service.dart';
+import '../controller/user_controller.dart';
 import 'detail_user_page.dart';
 
-class UserPage extends StatefulWidget {
-  const UserPage({super.key});
-
-  @override
-  State<UserPage> createState() => _UserPageState();
-}
-
-class _UserPageState extends State<UserPage> {
-  List<UserModel> users = [];
-
-  @override
-  void initState() {
-    super.initState();
-    getData();
-  }
-
-  getData() async {
-    users = await UserService().fetchUser();
-    print("ini data user ${users.length}");
-    setState(() {});
-  }
+class UserPage extends StatelessWidget {
+  // Menginisialisasi controller GetX
 
   @override
   Widget build(BuildContext context) {
+    print("build bang");
+    var userController = Get.put(UserController());
     return Scaffold(
       appBar: AppBar(
         title: Text('User Page'),
       ),
-      body: ListView.builder(
-        itemCount: users.length,
-        itemBuilder: (context, index) => InkWell(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        DetailUserPage(userId: users[index].id)));
-          },
-          child: Padding(
-            padding: EdgeInsets.all(8.0),
-            child: ListTile(
-              title: Text('${users[index].firstName} ${users[index].lastName}'),
-              leading: Image.network(users[index].avatar),
-              subtitle: Text(users[index].email),
+      body: GetBuilder<UserController>(
+        init: userController,
+        builder: (controller) {
+          return ListView.builder(
+            itemCount: controller.users.length,
+            itemBuilder: (context, index) => InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => DetailUserPage(
+                            userId: controller.users[index].id)));
+              },
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: ListTile(
+                  title: Text(
+                      '${controller.users[index].firstName} ${controller.users[index].lastName}'),
+                  leading: Image.network(controller.users[index].avatar),
+                  subtitle: Text(controller.users[index].email),
+                ),
+              ),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }
