@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sanberappflutter/get_started_page.dart';
-import 'package:sanberappflutter/home_page.dart';
 import 'package:sanberappflutter/settings_page.dart';
+import 'package:sanberappflutter/view/home_page.dart';
 
 class Buttomnavbar extends StatefulWidget {
   const Buttomnavbar({super.key});
@@ -34,13 +33,13 @@ class _ButtomnavbarState extends State<Buttomnavbar> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.settings), label: 'Settings'),
         ],
       ),
     );
   }
 }
-
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});

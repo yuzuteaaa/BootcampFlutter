@@ -1,8 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:sanberappflutter/auth/page/register_page.dart';
-
-import '../../Tugas10/bottomNavBar.dart';
+import 'package:get/get.dart';
+import 'package:sanberappflutter/routes/app_routes_named.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -157,10 +156,11 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RegisterPage()));
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => RegisterPage()));
+                      Get.toNamed(AppRoutesNamed.registerPage);
                     },
                     child: Text(
                       ' Mendaftar ',
@@ -188,11 +188,12 @@ class _LoginPageState extends State<LoginPage> {
         password: _passwordController.text,
       );
 
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(builder: (context) => Buttomnavbar()),
-        (route) => false,
-      );
+      // Navigator.pushAndRemoveUntil(
+      //   context,
+      //   MaterialPageRoute(builder: (context) => Buttomnavbar()),
+      //   (route) => false,
+      // );
+      Get.offAllNamed(AppRoutesNamed.buttomNavBar);
     } catch (e) {
       // Handle error
       print("Login error: $e");

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:sanberappflutter/auth/page/login_page.dart';
+import 'package:get/get.dart';
+import 'package:sanberappflutter/routes/app_routes_named.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -139,8 +140,9 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginPage()));
+                      // Navigator.push(context,
+                      //     MaterialPageRoute(builder: (context) => LoginPage()));
+                      Get.toNamed(AppRoutesNamed.loginPage);
                     },
                     child: Text(
                       ' masuk',
@@ -162,10 +164,11 @@ class _RegisterPageState extends State<RegisterPage> {
       await auth.createUserWithEmailAndPassword(
           email: _emailController.text, password: _passwordController.text);
 
-      Navigator.pop(
-        context,
-        MaterialPageRoute(builder: (context) => LoginPage()),
-      );
+      // Navigator.pop(
+      //   context,
+      //   MaterialPageRoute(builder: (context) => LoginPage()),
+      // );
+      Get.toNamed(AppRoutesNamed.loginPage);
     } catch (e) {
       // Handle error
       print("Login error: $e");
